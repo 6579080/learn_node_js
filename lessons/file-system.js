@@ -82,9 +82,9 @@ const appendFileAsync = async (path, data) => {
 }
 //
 // writeFileAsync(path.resolve(__dirname, 'text.txt'), 'data')
-//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test.txt'),  '123'))
-//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test.txt'), '\n123'))
-//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test.txt'), '\n456'))
+//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test_4kb.txt'),  '123'))
+//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test_4kb.txt'), '\n123'))
+//     .then(()=> appendFileAsync(path.resolve(__dirname, 'test_4kb.txt'), '\n456'))
 //     .catch(err =>console.log(err))
 
 
@@ -111,7 +111,7 @@ const removeFileAsync = async (path) =>{
 }
 
 
-// removeFileAsync(path.resolve(__dirname, 'test.txt'))
+// removeFileAsync(path.resolve(__dirname, 'test_4kb.txt'))
 //     .then(()=> console.log('file was removed'))
 //     .catch(err => console.log(err))
 

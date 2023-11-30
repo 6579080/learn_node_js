@@ -15,6 +15,7 @@ npm i cross-evn
 npm i dotenv
 
 cross-env TEXT="1 2 3 4 5 6 test count" node ./lessons/file-system.js
+cross-env MESSAGE="1 2 3 4 5 6 " node .\lessons\events.js
 
 
 
