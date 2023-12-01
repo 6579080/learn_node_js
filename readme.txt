@@ -14,6 +14,8 @@ npm i cross-evn
 
 npm i dotenv
 
+//    "start": "cross-env PORT=5000 NODE_ENV=production node ./lessons/process.js"
+
 cross-env TEXT="1 2 3 4 5 6 test count" node ./lessons/file-system.js
 cross-env MESSAGE="1 2 3 4 5 6 " node .\lessons\events.js
 
