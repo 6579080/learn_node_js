@@ -7,6 +7,12 @@ module.exports =class Application {
     constructor() {
         this.emitter = new EventEmitter();
         this.server = this._createServer()
+        this.middlewares = []
+    }
+
+    use(middleware){
+        this.middlewares.push(middleware);
+
     }
 
     listen(port, callback){
@@ -25,6 +31,8 @@ module.exports =class Application {
             Object.keys(endpoint).forEach((method) => {
                 const handler = endpoint[method];
                 this.emitter.on(this._getRouteMask(path, method), (req, res) => {
+                    const handler = endpoint[method];
+                    this.middlewares.forEach(middleware => middleware(req,res))
                     handler(req, res)
                 })
             })
@@ -33,6 +41,9 @@ module.exports =class Application {
 
     _createServer() {
         return http.createServer((req, res) => {
+            req.on('data', (chunk)=> {
+                console.log(chunk)
+            })
             const emitted = this.emitter.emit(this._getRouteMask(req.url, req.method), req, res)
             if (!emitted) {
                 res.end();
