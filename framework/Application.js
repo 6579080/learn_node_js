@@ -51,7 +51,6 @@ module.exports =class Application {
                     req.body = JSON.parse(body);
                 }
                 this.middlewares.forEach(middleware => middleware(req,res))
-                console.log(req.pathname)
                 const emitted = this.emitter.emit(this._getRouteMask(req.pathname, req.method), req, res)
                 if (!emitted) {
                     res.end()
